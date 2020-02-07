@@ -42,31 +42,16 @@ export default {
           return false;
         } return true;
       })
-      // let newData=[];
-      // window.console.log("-->>",this.mainData);
-      // let count = 1;
-      // for(let i in this.mainData){
-      //   window.console.log('-->>.',i);
-      //   if(this.mainData[i].index != index){
-      //     newData.push({
-      //       ...this.mainData[i],
-      //       index: count++
-      //     })
-      //   }
-      // }
-      // window.console.log("-->>>",newData);
-      // this.mainData = newData;
     },
     addNewWrapper({index}){
-      this.mainData = [...this.mainData.slice(0,index),{
+      this.mainData = [...this.mainData.slice(0,index+1),{
         index: this.title()
-      },...this.mainData.slice(index)]
+      },...this.mainData.slice(index+1)]
     },
   }
 }
 </script>
-
-<style>
+<style lang="scss" scoped>
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -74,5 +59,11 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+  >div{
+    margin:1rem;
+  }
+  >div:last-child{
+    margin-bottom:0;
+  }
 }
 </style>
